@@ -1,5 +1,7 @@
 package model;
 
+import org.omg.CORBA.INTERNAL;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,12 +19,22 @@ public class ListOfClowns {
     // and adds that clown to the list of clowns
     public void addClown(boolean isStanding) {
         // stub
+        Clown c = new Clown(isStanding);
+        clowns.add(c);
     }
 
     //TODO: Implement this method
     //EFFECTS:  returns true if every clown is standing, false otherwise
     public boolean allClownsStanding() {
-        return false;  // stub
+
+        boolean flag = true;
+
+        for (Clown clown : clowns) {
+            if (!clown.getIsStanding()) {
+                flag = false;
+            }
+        }
+        return flag;
     }
 
     //TODO: Implement this method
@@ -33,6 +45,22 @@ public class ListOfClowns {
     //          NOTE: first clown in list is at position 0.
     public void flip(int position) {
         // stub
+        int sizeOfClown = clowns.size();
+
+        if (position == 0) {
+            clowns.get(position).flip();
+            clowns.get(position + 1).flip();
+        } else if (position == sizeOfClown - 1) {
+            clowns.get(position).flip();
+            clowns.get(position - 1).flip();
+        } else {
+            clowns.get(position).flip();
+            clowns.get(position + 1).flip();
+            clowns.get(position - 1).flip();
+
+        }
+
+
     }
 
     //TODO: Implement this method
@@ -41,7 +69,8 @@ public class ListOfClowns {
     //          returns false if the position is not valid.
     //          NOTE: first clown in list is at position 0.
     public boolean isClownStanding(int position) {
-        return false;  // stub
+//        return false;  // stub
+        return clowns.get(position).getIsStanding();
     }
 
     //Do not modify this method
