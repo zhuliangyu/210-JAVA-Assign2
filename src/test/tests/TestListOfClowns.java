@@ -92,4 +92,19 @@ public class TestListOfClowns {
         assertTrue(cl.allClownsStanding());
     }
 
+    @Test
+    public void testTwoClownsDifferentPositionInvalid() {
+        ListOfClowns cl = new ListOfClowns();
+        cl.addClown(true);
+        cl.addClown(false);
+
+        System.out.println(cl.toString());
+        assertFalse(cl.allClownsStanding());
+
+        // After flipping the second (index 1) clown, they shouldn't both be standing
+        cl.flip(555);
+        System.out.println(cl.toString());
+        assertFalse(cl.allClownsStanding());
+    }
+
 }
