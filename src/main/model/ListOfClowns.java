@@ -77,7 +77,13 @@ public class ListOfClowns {
     //          NOTE: first clown in list is at position 0.
     public boolean isClownStanding(int position) {
 //        return false;  // stub
-        return clowns.get(position).getIsStanding();
+        int sizeOfClown = clowns.size();
+
+        if (position >= 0 && position < sizeOfClown) {
+            return clowns.get(position).getIsStanding();
+        } else {
+            return false;
+        }
     }
 
     //Do not modify this method

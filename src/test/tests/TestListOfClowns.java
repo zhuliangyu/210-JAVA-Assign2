@@ -107,4 +107,15 @@ public class TestListOfClowns {
         assertFalse(cl.allClownsStanding());
     }
 
+    @Test
+    public void testIsClownStadning(){
+        ListOfClowns cl = new ListOfClowns();
+        cl.addClown(true);
+
+        cl.flip(0);
+
+        assertFalse(cl.isClownStanding(500));
+        assertFalse(cl.isClownStanding(-500));
+    }
+
 }
