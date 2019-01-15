@@ -47,16 +47,21 @@ public class ListOfClowns {
         // stub
         int sizeOfClown = clowns.size();
 
-        if (position == 0) {
+        if (sizeOfClown == 1) {
             clowns.get(position).flip();
-            clowns.get(position + 1).flip();
-        } else if (position == sizeOfClown - 1) {
-            clowns.get(position).flip();
-            clowns.get(position - 1).flip();
         } else {
-            clowns.get(position).flip();
-            clowns.get(position + 1).flip();
-            clowns.get(position - 1).flip();
+            if (position == 0) {
+                clowns.get(position).flip();
+                clowns.get(position + 1).flip();
+            } else if (position == sizeOfClown - 1) {
+                clowns.get(position).flip();
+                clowns.get(position - 1).flip();
+            } else {
+                clowns.get(position).flip();
+                clowns.get(position + 1).flip();
+                clowns.get(position - 1).flip();
+
+            }
 
         }
 

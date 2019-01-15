@@ -13,6 +13,21 @@ public class TestListOfClowns {
 
     // Check out a list of two clowns that start out both sitting down
     @Test
+    public void testOneClownsSame() {
+        ListOfClowns cl = new ListOfClowns();
+        cl.addClown(false);
+
+        System.out.println(cl.toString());
+        assertFalse(cl.allClownsStanding());
+
+        // After flipping the first (index 0) clown, both clowns should be standing
+        cl.flip(0);
+        System.out.println(cl.toString());
+        assertTrue(cl.allClownsStanding());
+    }
+
+
+    @Test
     public void testTwoClownsSame() {
         ListOfClowns cl = new ListOfClowns();
         cl.addClown(false);
